@@ -1,0 +1,85 @@
+@import "tailwindcss";
+@import "streamdown/styles.css";
+@source "../node_modules/streamdown/dist/*.js";
+
+/*
+  Visual system
+  -------------
+  Cursor, "Warm parchment atelier" — cream canvas, hairline rules, 4px
+  corners, whisper-weight type, no pure black or pure white page.
+  https://styles.refero.design/style/4e3b4717-84c8-4599-baaf-a343c3d619b6
+
+  Slash, "Midnight vault with gilded ledger lines" — gold is punctuation
+  (citations, rules, numerals), never a button fill. Serif for the reading
+  voice; sans for the controls.
+  https://styles.refero.design/style/7c38e84b-aea0-4c8f-b3e9-60b994ee6c6b
+
+  Neutrals are shifted from those palettes onto the crown logo:
+  cream #fdf9f0, navy #0e1d38, gold #c4a04a.
+*/
+
+:root {
+  --background: #fdf9f0;
+  --foreground: #0e1d38;
+  --card: #f6f1e6;
+  --card-foreground: #0e1d38;
+  --muted: #ebe4d4;
+  --muted-foreground: #5c564c;
+  --border: #ddd4c2;
+  --input: #ddd4c2;
+  --primary: #0e1d38;
+  --primary-foreground: #fdf9f0;
+  --radius: 4px;
+  color-scheme: light;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-eb), "Iowan Old Style", Palatino, Georgia, serif;
+  --color-parchment: #fdf9f0;
+  --color-bone: #f6f1e6;
+  --color-linen: #ebe4d4;
+  --color-stone: #ddd4c2;
+  --color-ink: #0e1d38;
+  --color-ink-soft: #1a3158;
+  --color-quiet: #5c564c;
+  --color-gilt: #c4a04a;
+  --color-gilt-ink: #6e5314;
+  --radius-sheet: 4px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-parchment);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight: 400;
+}
+
+::selection {
+  background: #e7d3a1;
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gilt-ink);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
